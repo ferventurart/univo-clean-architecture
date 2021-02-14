@@ -1,0 +1,27 @@
+﻿@page
+@model WebApp.Pages.Departamentos.IndexModel
+@{
+    ViewData["Title"] = "Departamentos";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Activo</th>
+            <th scope="col">Opciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Departamentos)
+        {
+            <tr>
+                <th>@item.Id</th>
+                <td>@item.Nombre</td>
+                <td>@if (item.Activo) { <p>ACTIVO</p> } else { <p>INACTIVO</p> }</td>
+                <td></td>
+            </tr>
+        }
+    </tbody>
+</table>

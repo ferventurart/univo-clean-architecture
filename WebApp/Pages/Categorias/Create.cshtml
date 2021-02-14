@@ -1,0 +1,27 @@
+﻿@page
+@model WebApp.Pages.Categorias.CreateModel
+@{
+    ViewData["Title"] = "Crear Categoria";
+}
+
+<form method="post">
+
+    <div class="mb-3">
+        <select class="form-select" asp-for="CategoriaVM.Categoria.DepartamentoId">
+            @foreach (var item in Model.CategoriaVM.Departamentos)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="CategoriaVM.Categoria.Nombre"></label>
+        <input type="text" class="form-control" asp-for="CategoriaVM.Categoria.Nombre">
+        <span class="text-danger" asp-validation-for="CategoriaVM.Categoria.Nombre"></span>
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" asp-for="CategoriaVM.Categoria.Activo">
+        <label class="form-check-label" asp-for="CategoriaVM.Categoria.Activo"></label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
